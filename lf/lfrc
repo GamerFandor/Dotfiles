@@ -1,0 +1,8 @@
+# Basic
+set hidden 
+set ignorecase true
+set icons
+
+# Set borders
+set drawbox true
+

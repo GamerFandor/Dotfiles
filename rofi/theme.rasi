@@ -1,0 +1,63 @@
+* {
+    blue: #141414;
+    red: #FF5555;
+    white: #FFFFFF;
+    gray: #707880;
+
+    background-color: @blue;
+    color: @white;
+}
+
+window {
+    width: 45%;
+    border: 2px;
+    border-color: @red;
+}
+
+mainbox {
+    children: [inputbar, listview];
+}
+
+inputbar {
+    children: [prompt, entry];
+    padding: 10px;
+    background-color: @white;
+}
+
+prompt {
+    background-color: inherit;
+    text-color: #000000;
+}
+
+entry {
+    text-color: #000000;
+    background-color: inherit;
+    markup: "pango";
+    text: "<b>Text</b>";
+    padding: 0 10px;
+}
+
+listview {
+    colums: 1;
+    lines: 8;
+}
+
+element {
+    text-color: #707070;
+    padding: 5px 10px;
+}
+
+element selected {
+    text-color: @white;
+}
+
+element-text {
+    background-color: inherit;
+    text-color: inherit;
+}
+
+textbox-prompt-colon {
+    expand: false;
+    str: ">";
+    text-color: #000000;
+}

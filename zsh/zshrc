@@ -1,0 +1,69 @@
+# Prompt
+PS1='%F{white}[ %F{red}%~ %F{white}]%F{red}%(!.#.$) %f'
+
+# History
+HISTFILE=~/.config/zsh/zsh_history
+HISTSIZE=SAVEHIST=1000
+eval "$(atuin init zsh)"
+
+# Exports
+export HISTORY_IGNORE="(l|ll|la|.|..|cd|pwd|exit|reboot|history|home)"
+
+# Startup script
+neofetch --config $HOME/.config/neofetch/startup.conf
+
+# Aliases - install/uninstall
+alias update='sudo pacman -Syyu && setxkbmap -layout hu'
+alias install='sudo pacman -S'
+alias pinstall='sudo pip install'
+alias yinstall='yay -S'
+alias uninstall='sudo pacman -Rcns'
+alias puninstall='sudo pip uninstall'
+alias yuninstall='sudo yay -R'
+
+# Aliases - ls command
+alias l='exa -1 --group-directories-first --color=always'
+alias ll='exa -1 -l -g --group-directories-first --color=always'
+alias la='exa -1 -l -g --group-directories-first --color=always -a'
+alias tree='exa -T'
+
+# Aliases - navigation
+alias home='cd /home/gamerfandor ; clear ; neofetch --config $HOME/.config/neofetch/startup.conf'
+alias .='cd'
+alias ..='cd ..'
+
+# Aliases - programs
+alias vim='nvim'
+alias code='code . && exit'
+
+# Aliases - configuration
+alias addfonts='sudo fc-cache -fv'
+
+# Aliases - misc
+alias cmatrix='unimatrix -c red -u "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789" -s 94'
+alias bincmatrix='unimatrix -c red -u "10" -s 94'
+alias monitormode='~/.config/scripts/monitormode.sh'
+
+ex () {
+    if [ -f "$1" ]; then
+        case $1 in
+            *.tar.bz2)  tar xjf $1      ;;
+            *.tar.gz)   tar xzf $1      ;;
+            *.bz2)      bunzip2 $1      ;;
+            *.rar)      unrar x $1      ;;
+            *.gz)       gunzip $1       ;;
+            *.tar)      tar xf $1       ;;
+            *.tbz2)     tar xjf $1      ;;
+            *.tgz)      tar xfz $1      ;;
+            *.zip)      unzip $1        ;;
+            *.Z)        uncompress $1   ;;
+            *.7z)       7z x $1         ;;
+            *.deb)      ar x $1         ;;
+            *.tar.xz)   tar xf $1       ;;
+            *.tar.zst)  unzstd $1       ;;
+            *) echo "'$1' cannot be extracted via ex()." ;;
+        esac
+    else
+        echo "'$1' is not a valid file."
+    fi
+}

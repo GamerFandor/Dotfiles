@@ -1,0 +1,22 @@
+# Ignore all files by default, but scan all directories
+*
+!*/
+
+# Don't ignore these folders
+!alacritty/**/*
+!dunst/**/*
+!feh/**/*
+!i3/**/*
+!lf/**/*
+!ly/**/*
+!neofetch/**/*
+!nvim/**/*
+!polybar/**/*
+!rofi/**/*
+!zsh/**/*
+!.github/**/*
+!.gitignore
+
+# Ignore some files
+nvim/undodir/**/*
+zsh/zsh_history
